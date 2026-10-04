@@ -318,7 +318,10 @@ img {
   letter-spacing: -0.01em;
 }
 
-.logo-curve-icon {
+.brand-logo-img {
+  width: 32px;
+  height: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -445,6 +448,19 @@ img {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 36px;
+}
+
+.drawer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawer-logo-img {
+  width: 36px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .drawer-tagline {
@@ -1261,8 +1277,8 @@ img {
 
 .details-tapestry {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   margin-bottom: 36px;
 }
 
@@ -1280,6 +1296,27 @@ img {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #E5DEC3;
+}
+
+.emblem-display-bg {
+  background: var(--color-charcoal) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.detail-emblem-img {
+  width: 70%;
+  max-width: 175px;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 6px 16px rgba(206, 163, 112, 0.25));
+}
+.detail-focus-card:hover .detail-emblem-img {
+  transform: scale(1.08) rotate(2deg);
 }
 
 .detail-img {
@@ -1650,6 +1687,20 @@ img {
   gap: 48px;
   padding-bottom: 64px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-logo-img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .footer-brand-title {
