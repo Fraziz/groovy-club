@@ -148,22 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
     'tee-modal': {
       title: 'Signature Tee',
       kicker: 'Core Piece • In Development',
-      desc: 'The foundational Groovy Club garment. Engineered from 260 GSM compact combed cotton with a thick 1.25" rib crewneck, controlled dropped shoulders, formal front arched Groovy Club & wave print, and monumental "Good People Good Places Good Days" campfire back illustration in signature #CEA370.',
+      desc: 'The foundational Groovy Club garment. Engineered from 260 GSM compact combed cotton with a thick 1.25" rib crewneck, controlled dropped shoulders, and subtle water-based screen print in signature #CEA370.',
       image: '/images/tee-front.jpg',
-      thumbs: [
-        '/images/tee-front.jpg',
-        '/images/tee-back.jpg',
-        '/images/tee-back-flower.jpg',
-        '/images/tee-back-headphone.jpg',
-        '/images/tee-detail.jpg',
-      ],
+      thumbs: ['/images/tee-front.jpg', '/images/tee-back.jpg', '/images/tee-detail.jpg'],
       bullets: [
-        'Formal Front: Clean arched GROOVY CLUB wordmark with dual Groovy Curve wave underline',
-        'Formal Back: Monumental "Good People Good Places Good Days" campfire woodcut illustration',
-        'Heavyweight 260 GSM compact combed cotton (100% pre-shrunk)',
-        'Thick, dense 1.25" structured 1x1 rib collar with reinforced topstitching',
+        'Heavyweight 260 GSM compact combed cotton',
         'Relaxed, slightly boxy silhouette with controlled dropped shoulders',
+        'Thick, dense 1.25" structured 1x1 rib collar',
         'Matte water-based screen print in signature color #CEA370',
+        'Pre-shrunk to retain measurements across washing',
       ],
       colors: [
         { name: 'Warm Ivory', hex: '#F5F1E8' },
@@ -359,6 +352,70 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalLinks = document.querySelectorAll('.modal-guide-link, .modal-notify-link');
   modalLinks.forEach((link) => {
     link.addEventListener('click', closeModal);
+  });
+
+  // 6.1 Product Universe Category Tabs Switcher
+  const uTabs = document.querySelectorAll('.u-tab');
+  const uPanels = document.querySelectorAll('.u-panel');
+
+  uTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetCategory = tab.getAttribute('data-utab');
+      uTabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      uPanels.forEach((p) => {
+        p.classList.remove('active');
+        p.setAttribute('hidden', '');
+      });
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const matchingPanel = document.getElementById(`upanel-${targetCategory}`);
+      if (matchingPanel) {
+        matchingPanel.classList.add('active');
+        matchingPanel.removeAttribute('hidden');
+      }
+    });
+  });
+
+  // 6.2 Master Blueprint Modal
+  const boardModal = document.getElementById('universe-board-modal');
+  const openBoardBtn = document.getElementById('open-board-btn');
+  const blueprintPreviewImg = document.getElementById('blueprint-preview-img');
+  const boardModalClose = document.getElementById('board-modal-close');
+  const boardModalBackdrop = document.getElementById('board-modal-backdrop');
+
+  function openBoardModal() {
+    if (boardModal) {
+      boardModal.classList.add('open');
+      boardModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (boardModalClose) boardModalClose.focus();
+    }
+  }
+
+  function closeBoardModal() {
+    if (boardModal) {
+      boardModal.classList.remove('open');
+      boardModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openBoardBtn) openBoardBtn.addEventListener('click', openBoardModal);
+  if (blueprintPreviewImg) blueprintPreviewImg.addEventListener('click', openBoardModal);
+  if (boardModalClose) boardModalClose.addEventListener('click', closeBoardModal);
+  if (boardModalBackdrop) boardModalBackdrop.addEventListener('click', closeBoardModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (boardModal && boardModal.classList.contains('open')) {
+        closeBoardModal();
+      }
+    }
   });
 
   // 7. Newsletter / Join the Club Form
