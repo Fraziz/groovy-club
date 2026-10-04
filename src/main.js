@@ -148,15 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
     'tee-modal': {
       title: 'Signature Tee',
       kicker: 'Core Piece • In Development',
-      desc: 'The foundational Groovy Club garment. Engineered from 260 GSM compact combed cotton with a thick 1.25" rib crewneck, controlled dropped shoulders, and subtle water-based screen print in signature #CEA370.',
+      desc: 'The foundational Groovy Club garment. Engineered from 260 GSM compact combed cotton with a thick 1.25" rib crewneck, controlled dropped shoulders, formal front arched Groovy Club & wave print, and monumental "Good People Good Places Good Days" campfire back illustration in signature #CEA370.',
       image: '/images/tee-front.jpg',
-      thumbs: ['/images/tee-front.jpg', '/images/tee-back.jpg', '/images/tee-detail.jpg'],
+      thumbs: [
+        '/images/tee-front.jpg',
+        '/images/tee-back.jpg',
+        '/images/tee-back-flower.jpg',
+        '/images/tee-back-headphone.jpg',
+        '/images/tee-detail.jpg',
+      ],
       bullets: [
-        'Heavyweight 260 GSM compact combed cotton',
+        'Formal Front: Clean arched GROOVY CLUB wordmark with dual Groovy Curve wave underline',
+        'Formal Back: Monumental "Good People Good Places Good Days" campfire woodcut illustration',
+        'Heavyweight 260 GSM compact combed cotton (100% pre-shrunk)',
+        'Thick, dense 1.25" structured 1x1 rib collar with reinforced topstitching',
         'Relaxed, slightly boxy silhouette with controlled dropped shoulders',
-        'Thick, dense 1.25" structured 1x1 rib collar',
         'Matte water-based screen print in signature color #CEA370',
-        'Pre-shrunk to retain measurements across washing',
       ],
       colors: [
         { name: 'Warm Ivory', hex: '#F5F1E8' },
